@@ -1,0 +1,96 @@
+Lab #6 Take Home
+Your name: Brenden Garcia
+
+
+---------------------------------------- Question 1 Query ---------------------------------------- 
+ SELECT ship_city FROM orders GROUP BY ship_city ORDER BY COUNT(*) DESC LIMIT 1;
+
+---------------------------------------- Question 1 Results ---------------------------------------- 					
+
+ ship_city
+----------------
+ Rio de Janeiro
+(1 row)
+	
+
+---------------------------------------- Question 2 Query ---------------------------------------- 
+
+										put query here
+
+---------------------------------------- Question 2 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+
+---------------------------------------- Question 3 Query ---------------------------------------- 
+
+CREATE VIEW cID AS SELECT customer_id, COUNT(customer_id) FROM orders GROUP BY customer_id;
+SELECT AVG(count) FROM cID;
+CREATE VIEW q2 AS SELECT * FROM cID WHERE count > 9.325;
+SELECT company_name FROM customers INNER JOIN q2 ON q2.customer_id = customers.customer_id;
+
+---------------------------------------- Question 3 Results ---------------------------------------- 					
+         company_name
+------------------------------
+ Around the Horn
+ Berglunds snabbköp
+ Blondesddsl père et fils
+ Bon app'
+ Bottom-Dollar Markets
+ B's Beverages
+ Ernst Handel
+ Folk och fä HB
+ Frankenversand
+ Godos Cocina Típica
+ Great Lakes Food Market
+ Hanari Carnes
+ HILARION-Abastos
+ Hungry Owl All-Night Grocers
+ Island Trading
+ Königlich Essen
+ La maison d'Asie
+ Lehmanns Marktstand
+ LILA-Supermercado
+ LINO-Delicateses
+ Magazzini Alimentari Riuniti
+ Mère Paillarde
+ Old World Delicatessen
+ Ottilies Käseladen
+ Piccolo und mehr
+ Queen Cozinha
+ QUICK-Stop
+ Rattlesnake Canyon Grocery
+ Reggiani Caseifici
+ Ricardo Adocicados
+ Richter Supermarkt
+ Save-a-lot Markets
+ Suprêmes délices
+ Tortuga Restaurante
+ Vaffeljernet
+ Victuailles en stock
+ Die Wandernde Kuh
+ Wartian Herkku
+ White Clover Markets
+(39 rows)
+
+---------------------------------------- Question 4 Query ---------------------------------------- 
+CREATE VIEW catID AS SELECT category_id, COUNT(category_id) FROM products GROUP BY category_id HAVING COUNT(category_id) > 10;
+SELECT category_name FROM categories INNER JOIN catID ON catID.category_id = categories.category_id;
+
+---------------------------------------- Question 4 Results ---------------------------------------- 					
+
+category_name
+---------------
+ Beverages
+ Condiments
+ Confections
+ Seafood
+(4 rows)					
+
+---------------------------------------- Question 5 Query ---------------------------------------- 
+
+										put query here
+
+---------------------------------------- Question 5 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+
